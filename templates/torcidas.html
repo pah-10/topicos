@@ -1,0 +1,28 @@
+{% extends "template.html" %}
+{% block conteudo %}
+        <!--LISTA DE TORCIDAS-->
+        <table class="table table-striped table-responsive table-bordered">
+            <thead class="thead-default">
+                <tr>
+                    <th>Nome</th>
+                    <th>Time</th>
+                    <th>QTD Socios</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for torcida in torcidas %}
+                <tr>
+                    <td>{{ torcida.nome }}</td>
+                    <td>{{ torcida.time }}</td>
+                    <td>{{ torcida.socios }}</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+        <div style="float: right; width:  100%;">
+            <button class="btn btn-info pull-right" style="float: right;" onclick="location.href='{{ url_for('novoTorcida') }}'">+</button>
+            <button class="btn btn-info pull-right" onclick="location.href='{{ url_for('exportarTorcidas') }}'">Exportar Torcidas</button>
+        </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "template.html" %}
+{% block conteudo %}
+        <!--LISTA DE JOGOS-->
+        <table class="table table-striped table-responsive table-bordered">
+            <thead class="thead-default">
+                <tr>
+                    <th>Mandante</th>
+                    <th>Visitante</th>
+                    <th>Grupo</th>
+                    <th>Placar</th>
+                    <th>QTD Faltas</th>
+                    <th>QTD Cartão Amarelo</th>
+                    <th>QTD Cartão Vermelho</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for jogo in jogos %}
+                <tr>
+                    <td>{{ jogo.timeMandante }}</td>
+                    <td>{{ jogo.timeVisitante }}</td>
+                    <td>{{ jogo.grupo }}</td>
+                    <td>{{ jogo.placar }}</td>
+                    <td>{{ jogo.faltas }}</td>
+                    <td>{{ jogo.cartAmarelo }}</td>
+                    <td>{{ jogo.cartVermelho }}</td>
+                    <td><a class="btn btn-warning" href="{{ url_for('editarJogo', idJogo=jogo.idJogo) }}">Editar</a></td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+        <div style="float: right; width:  100%;">
+            <button class="btn btn-info pull-right" style="float: right;" onclick="location.href='{{ url_for('novoJogo') }}'">+</button>
+            <button class="btn btn-info pull-right" onclick="location.href='{{ url_for('exportarJogos') }}'">Exportar Jogos</button>
+        </div>
+{% endblock %}

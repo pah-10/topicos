@@ -1,0 +1,37 @@
+{% extends "template.html" %}
+{% block conteudo %}
+      <form action="{{ url_for('criarJogo') }}" method="post">
+        <fieldset>
+          <div class="form-group">
+            <label for="timeMandante">Time Mandante</label>
+            <input type="text" id="timeMandante" name="timeMandante" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="timeVisitante">Time Visitante</label>
+            <input type="text" id="timeVisitante" name="timeVisitante" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="grupo">Grupo</label>
+            <input type="text" id="grupo" name="grupo" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="placar">Placar</label>
+            <input type="text" id="placar" name="placar" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="faltas">Número de Faltas</label>
+            <input type="number" id="faltas" name="faltas" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="cartAmarelo">Número de Cartões Amarelos</label>
+            <input type="number" id="cartAmarelo" name="cartAmarelo" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="cartVermelho">Número de Cartões Vermelhos</label>
+            <input type="number" id="cartVermelho" name="cartVermelho" class="form-control">
+          </div>
+          <br>
+          <button type="submit" class="btn btn-info btn-salvar">Salvar</button>
+        </fieldset>
+      </form>
+{% endblock %}

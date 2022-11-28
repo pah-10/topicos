@@ -1,0 +1,28 @@
+{% extends "template.html" %}
+{% block conteudo %}
+        <!--LISTA DE TIMES-->
+        <table class="table table-striped table-responsive table-bordered">
+            <thead class="thead-default">
+                <tr>
+                    <th>Nome</th>
+                    <th>Campeonato</th>
+                    <th>QTD Jogadores</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for time in times %}
+                <tr>
+                    <td>{{ time.nome }}</td>
+                    <td>{{ time.campeonato }}</td>
+                    <td>{{ time.qtdJogadores }}</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+        <div style="float: right; width:  100%;">
+            <button class="btn btn-info pull-right" style="float: right;" onclick="location.href='{{ url_for('novoTime') }}'">+</button>
+            <button class="btn btn-info pull-right" onclick="location.href='{{ url_for('exportarTimes') }}'">Exportar Times</button>
+        </div>
+{% endblock %}
