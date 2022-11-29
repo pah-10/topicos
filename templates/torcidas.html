@@ -1,0 +1,38 @@
+<nav class="navbar navbar-light" style="background-color: #03295E;">
+  <a class="navbar-nav ms-auto mb-0 h4 mb-lg-0" href="{{ url_for('menu') }}" style="padding: 5px 20px 5px 0; color: white">Menu</a>
+</nav>
+
+{% extends "template.html" %}
+{% block conteudo %}
+
+<!--LISTA DE TORCIDAS-->
+<table class="table table-striped table-responsive table-bordered">
+    <thead class="thead-default">
+        <tr>
+            <th>Nome</th>
+            <th>Time</th>
+            <th>QTD Socios</th>
+            <th>Opções</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for torcida in torcidas %}
+        <tr>
+            <td>{{ torcida.nome }}</td>
+            <td>{{ torcida.time }}</td>
+            <td>{{ torcida.socios }}</td>
+            <td>
+                <a class="btn btn-warning" href="{{ url_for('editarTorcida', idTorcida=torcida.idTorcida) }}">Editar</a>
+                <a class="btn btn-danger" href="{{ url_for('deletarTorcida', idTorcida=torcida.idTorcida) }}">Deletar</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+<div style="float: right; width:  100%;">
+    <button class="btn btn-info pull-right" style="float: right;" onclick="location.href='{{ url_for('novoTorcida') }}'">+</button>
+    <button class="btn btn-info pull-right" onclick="location.href='{{ url_for('exportarTorcidas') }}'">Exportar Torcidas</button>
+</div>
+{% endblock %}
