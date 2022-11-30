@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jogoteca</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='inicio.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+    </head>
+    <body>
+        <div id="content">
+            <div class="box" id="nome">
+                <br>
+                <h1 class="titulo">Frase Motivacional</h1>
+                <br><br>
+                <p class="nome b" >{{ resposta }}</p>
+            </div>
+        </div>
+    </body>
+</html>
