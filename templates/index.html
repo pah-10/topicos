@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Jogoteca</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='inicio.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+  </head>
+  <body>
+		<div id="content">
+            {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <ul id="messages" class="list-unstyled">
+                        {% for message in messages %}
+                            <li class="alert alert-success">{{ message }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+
+			<div class="box">
+                <img src="{{ user_image }}" alt="Logo" width="250" height="250">
+            </div>
+
+            <div class="box" id="nome">
+                <p id="logo">JOGOTECA<br>Since 2022</p>
+            </div>
+
+            <div class="box">
+                <a href="" class="button"></a>
+                <button class="btn btn-outline-info a" onclick="location.href='{{ url_for('login') }}'"  type="button">Login</button>
+
+                <a href="" ></a>
+                <button class="btn btn-outline-info a" onclick="location.href='{{ url_for('novoUsuario') }}'" type="button">Cadastro</button>
+            </div>
+		</div>
+	</body>
+</html>
